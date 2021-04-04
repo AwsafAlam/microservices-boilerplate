@@ -1,0 +1,30 @@
+# setup:
+#   addons:
+#     - plan: heroku-postgresql
+#       as: DATABASE
+#   config:
+#     S3_BUCKET: my-example-bucket
+build:
+  userapp:
+    web: Dockerfile
+    worker: user-app/Dockerfile
+    config:
+      NODE_ENV: production
+      APPID: 1111
+  courseapp:
+    web: Dockerfile
+    worker: user-app/Dockerfile
+    config:
+        NODE_ENV: production
+        APPID: 2222
+  # release:
+#   command:
+#     - ./deployment-tasks.sh
+#   image: worker
+# run:
+#   web: bundle exec puma -C config/puma.rb
+#   worker: python myworker.py
+#   asset-syncer:
+#     command:
+#       - python asset-syncer.py
+#     image: worker
