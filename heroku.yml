@@ -6,8 +6,8 @@
 #     S3_BUCKET: my-example-bucket
 build:
   docker:
-    userapp: user-app/Dockerfile
-    courseapp: course-app/Dockerfile
+    userapp: user-app/Dockerfile.userapp
+    courseapp: course-app/Dockerfile.courseapp
     
 release:
   image: userapp
