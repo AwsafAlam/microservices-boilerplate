@@ -8,9 +8,6 @@ build:
   docker:
     userapp: user-app/Dockerfile
     courseapp: course-app/Dockerfile
-    config:
-      NODE_ENV: production
-      APPID: 1111
     
 release:
   image: userapp
