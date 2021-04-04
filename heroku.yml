@@ -5,26 +5,21 @@
 #   config:
 #     S3_BUCKET: my-example-bucket
 build:
-  userapp:
-    web: Dockerfile
-    worker: user-app/Dockerfile
+  docker:
+    userapp: user-app/Dockerfile
+    courseapp: course-app/Dockerfile
     config:
       NODE_ENV: production
       APPID: 1111
-  courseapp:
-    web: Dockerfile
-    worker: user-app/Dockerfile
-    config:
-        NODE_ENV: production
-        APPID: 2222
-  # release:
-#   command:
-#     - ./deployment-tasks.sh
-#   image: worker
-# run:
-#   web: bundle exec puma -C config/puma.rb
-#   worker: python myworker.py
-#   asset-syncer:
-#     command:
-#       - python asset-syncer.py
-#     image: worker
+    
+release:
+  image: userapp
+  command:
+    - npm run app
+run:
+  userapp: npm run app
+  courseapp: npm run app
+  # asset-syncer:
+  #   command:
+  #     - python asset-syncer.py
+  #   image: worker
