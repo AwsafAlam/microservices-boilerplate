@@ -8,6 +8,7 @@ build:
   docker:
     userapp: user-app/Dockerfile.userapp
     courseapp: course-app/Dockerfile.courseapp
+    lb: haproxy/Dockerfile.lb
     
 release:
   image: userapp
