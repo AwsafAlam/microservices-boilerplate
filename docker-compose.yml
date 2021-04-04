@@ -7,11 +7,17 @@ services:
             - "8080:8080"
         volumes:
             - ./haproxy:/usr/local/etc/haproxy
-    nodeapp:
-        image: nodeapp
+    userapp:
+        image: userapp
+        build:
+            context: ./user-app/
+            dockerfile: Dockerfile.userapp
         environment:
             - APPID=2222
     courseapp:
         image: courseapp
+        build:
+            context: ./course-app/
+            dockerfile: Dockerfile.courseapp
         environment:
             - APPID=1111
